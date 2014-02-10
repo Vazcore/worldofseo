@@ -1,0 +1,111 @@
+.clr{
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+
+#page_cover{
+	width: 75%;
+	margin: 0 auto;	
+}
+
+body{
+	background-color: #f4f4f4;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 13px;
+}
+
+#site-name{
+	padding-left: 10px;
+}
+
+header{
+	width: 100%;
+	height: 150px;
+	background-image: url("../image/header.jpg");
+	background-color: white;
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+	margin-top: 30px;	
+	position: relative;
+}
+
+#header-logo{
+	position: absolute;
+	right: 20px;
+	top: 0px;	
+}
+
+nav ul li{
+	float: left;
+	margin-left: 10px;	
+	padding-top: 5px;
+}
+
+nav ul li a{
+	color: #1788F0;
+}
+
+#posts-section{
+	width: 100%;
+	
+}
+
+.post-cover{
+	border-left: 2px solid black;
+	margin-top: 20px;
+	background-color: white;
+	min-height: 100px;
+}
+
+.post-title{
+	text-align: left;
+	padding: 5px 0;
+	padding-left: 10px;
+	font-size: 22px;
+	
+}
+
+.post-date{
+	text-align: left;
+	padding: 5px 0;
+	padding-left: 15px;
+	font-size: 12px;
+	font-weight: 300;
+}
+
+.post-title a{
+	color: #1788F0;
+	text-decoration: none;
+}
+
+.post-preview-text, .post-image{
+	float: left;
+}
+
+.post-image{
+	width: 20%;
+}
+
+.post-preview-text{
+	width: 75%;
+	font-weight: 300;
+	text-align: justify;
+}
+
+.post-button{
+	float: right;
+	
+	height: 20px;
+}
+
+.b-read-next{
+	text-decoration: none;
+	padding: 8px 5px;
+	background-color: #1788F0; 
+	color: white;
+}
+
+.b-read-next:hover{
+	background-color: #0242AC;
+}
