@@ -19,8 +19,9 @@
 				<div class="clr"></div>
 				<h3 id="site-name">Блог "Технологии SEO"</h3>
 				<img src="image/seo_logo.jpg" width="100" id="header-logo">
-				<div id="cr_new_post"><button class="nav_button">Новый пост</button></div>
+				<div id="cr_new_post"><button class="nav_button" name="new-post">Новый пост</button></div>
 				<div class="creation_window">
 					<div class="close-window"><img src="image/close.png" width="100%"></div>
+					<div class="load-content"></div>
 				</div>
 			</header>
