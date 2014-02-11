@@ -9,6 +9,21 @@
 				case "new-post":
 					$post->newPost();					
 					break;
+				case "add-new-post":
+					if(isset($_POST['author']) && isset($_POST['text'])){
+						$author = $_POST['author'];
+						$text = $_POST['text'];
+						$author = trim($author);	
+						$text = trim($text);
+						if(!empty($author) && !empty($text)){
+							$post->addPost($author, $text);					
+						}else{
+							echo "Error!";
+						}
+					}else{
+						echo "Error!";
+					}					
+					break;
 				
 				default:
 					# code...

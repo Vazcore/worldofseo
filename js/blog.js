@@ -16,14 +16,14 @@ function typeLoading() {
 
 // Zagruzka contenta
 function loadContent(type) {
-	var pageType = type;
+	var pageType = type;	
 
 	$.ajax({
 		type: "POST",
 		url: "handler.php",
 		data: { type:pageType }
-	}).done(function(msg) {
-		$(".load-content").html(msg);
+	}).done(function(html) {		
+		$(".load-content").html(html);
 	});
 
 }
@@ -40,7 +40,7 @@ function loadWindow() {
 		type = typeLoading();
 		loadContent(type);
 		contentWindow.fadeIn("slow");
-		statusWindow = 1;
+		statusWindow = 1;		
 	}
 }
 
@@ -52,9 +52,11 @@ function closeWindow() {
 		cover.css({"opacity" : "1"});
 		cover.fadeOut("slow");
 		contentWindow.fadeOut("slow");
+		contentLoad.html("");
 		statusWindow = 0;
 	}
 }
+
 
 
 $(document).ready(function() {
@@ -62,7 +64,9 @@ $(document).ready(function() {
 		loadWindow();
 	});
 
+
 	$(".close-window img").click(function() {
 		closeWindow();		
 	});
+
 });

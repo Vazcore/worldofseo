@@ -121,13 +121,13 @@ nav ul li a{
 	bottom: -10px;
 }
 
-.nav_button{
+.nav_button, .nav_button_edit{
 	background-color: #1788F0;
 	padding: 5px;
 	color: white;
 }
 
-.nav_button:hover{
+.nav_button:hover, .nav_button_edit:hover{
 	background-color: #0242AC;
 	cursor: pointer;
 }
@@ -174,18 +174,37 @@ nav ul li a{
 .post-part-title{
 	width: 20%;
 	margin-left: 5%;
-	text-align: center;
+	text-align: right;
+	padding-right: 3%;
+}
+
+.post-part-title p{
+	margin-top: 7px;
 }
 
 .post-part-input{
 	width: 70%;
+	color: rgb(70,70,70);
 }
 
 .post-part-input input{
-	width: 90%;
+	width: 90%;	
+	padding: 5px;	
+	border: 1px solid silver;
 }
 
 .post-part-input textarea{
 	width: 90%;
+	min-width: 90%;
+	max-width: 90%;
+	min-height: 300px;
+	max-height: 300px;
 	height: 300px;
+	border: 1px solid silver;
+	padding: 5px;	
+}
+
+.form-edit h3{
+	text-align: center;
+	margin-top: 5%;
 }

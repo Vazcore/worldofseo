@@ -24,4 +24,5 @@
 					<div class="close-window"><img src="image/close.png" width="100%"></div>
 					<div class="load-content"></div>
 				</div>
+
 			</header>

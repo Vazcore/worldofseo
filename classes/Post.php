@@ -14,5 +14,9 @@
 		}
 
 		public function editPost() {}				
+
+		public function addPost($author, $text) {
+			
+		}				
 	}
 ?>
