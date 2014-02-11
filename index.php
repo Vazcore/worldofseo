@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">	
 		<link rel="stylesheet" type="text/css" href="css/clear.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link href='http://fonts.googleapis.com/css?family=Exo+2:400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style.css">		
 		<title>Page_title</title>
 	</head>
 	<body>
@@ -32,7 +32,9 @@
 					<div class="clr"></div>
 				</article>
 			</section>
-			<footer></footer>
+			<footer>
+				<p>&copy; Alexey Gabrsev, 2014</p>
+			</footer>
 		</div>
 	</body>
 </html>
