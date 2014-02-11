@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">	
-		<link rel="stylesheet" type="text/css" href="css/clear.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">		
-		<title>Page_title</title>
-	</head>
-	<body>
-		<div id="page_cover">
-			<header>
-				<nav>
-					<ul>	
-						<li><a href="index.php">Главная</a></li>						
-					</ul>
-				</nav>
-				<div class="clr"></div>
-				<h3 id="site-name">Блог "Технологии SEO"</h3>
-				<img src="image/seo_logo.jpg" width="100" id="header-logo">
-			</header>
+<?php
+	require_once "classes/Page.php";
+	$page = new Page("main");
+	$page->get_header();
+ ?>
+ 			
 			<section id="posts-section">
 				<article class="post-cover">
 					<div class="post-title"><a href="#">Tittle of the post</a></div>
@@ -32,9 +18,6 @@
 					<div class="clr"></div>
 				</article>
 			</section>
-			<footer>
-				<p>&copy; Alexey Gabrsev, 2014</p>
-			</footer>
-		</div>
-	</body>
-</html>
+<?php
+	$page->get_footer();
+?>
