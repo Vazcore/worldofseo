@@ -1,7 +1,7 @@
 <?php
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == "xmlhttprequest"){
 		require_once "classes/Post.php";		
-		$post = new Post();
+		$post = new Post("ni");
 
 		if(isset($_POST['type'])){
 			$type = $_POST['type'];
@@ -10,13 +10,15 @@
 					$post->newPost();					
 					break;
 				case "add-new-post":
-					if(isset($_POST['author']) && isset($_POST['text'])){
+					if((isset($_POST['author']) && isset($_POST['text'])) && isset($_POST['title'])){
 						$author = $_POST['author'];
 						$text = $_POST['text'];
+						$title = $_POST['title'];
 						$author = trim($author);	
 						$text = trim($text);
-						if(!empty($author) && !empty($text)){
-							$post->addPost($author, $text);					
+						$title = trim($title);
+						if((!empty($author) && !empty($text)) && !empty($title)){							
+							$post->addPost($author, $text, $title);					
 						}else{
 							echo "Error!";
 						}

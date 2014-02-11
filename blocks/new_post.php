@@ -13,6 +13,15 @@
 	<div class="clr"></div>
 
 	<div class="post-part-title">
+		<p>Заголовок поста:</p>
+	</div>
+	<div class="post-part-input">
+		<input type="text" name="title">
+	</div>
+
+	<div class="clr"></div>
+
+	<div class="post-part-title">
 		<p>Текст поста:</p>
 	</div>
 	<div class="post-part-input">

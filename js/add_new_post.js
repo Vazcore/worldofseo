@@ -7,6 +7,7 @@ function typeLoadingEdit() {
 function editContent() {
 	var forma = $(".form-edit");
 	var type = "None";
+	var title = "None";
 	var author = "None";
 	var text = "None";
 	var email = "None";
@@ -17,15 +18,17 @@ function editContent() {
 	if(type == "add-new-post"){
 		author = forma.find("input[name='author']").val();
 		text = forma.find("textarea").val();
+		title = forma.find("input[name='title']").val();
+
 		$.ajax({
 			type: "POST",
 			url: "handler.php",
-			data: { type:type, author:author, text:text }
+			data: { type:type, author:author, text:text, title:title }
 		}).done(function(msg) {
 			if(msg == "Error!"){
 				$("#error-console").html("<font color='red'>Незаполнены поля!</font>");
 			}else{
-				alert("Пост успешно добавлен!");
+				alert(msg);
 				closeWindow();	
 			}
 		});
