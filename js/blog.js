@@ -57,6 +57,20 @@ function closeWindow() {
 	}
 }
 
+function post_operations() {
+	$("#post-edit").click(function() {
+		var id = $("#post-id-edit").val();
+		$.ajax({
+			type: "POST",
+			url: "handler.php",
+			data: { type : 'load-post-for-edit', id : id }
+		}).done(function(msg) {
+			$("#hidden-edit-post-form").html(msg);
+		});
+		$("#hidden-edit-post-form").fadeIn("slow");
+	});
+}
+
 function openPost() {
 	var post_id = $(this).parent().find("input").val();
 	var cover = $("#cover-window");
@@ -70,8 +84,10 @@ function openPost() {
 			data: { type : 'open-post', id : post_id }
 		}).done(function(msg) {
 			postWindow.find(".load-content").html(msg);
-			postWindow.fadeIn("slow");
+			postWindow.fadeIn("slow");			
 			statusWindow = 1;
+
+			post_operations();
 		});		
 	}
 }

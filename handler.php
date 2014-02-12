@@ -34,7 +34,13 @@
 				case 'check-new-posts':
 					$post->checkNewsPosts();
 					break;
-				
+
+				case 'open-post':
+					$post->open_post();
+					break;
+				case 'load-post-for-edit':
+					$post->load_post_forEdit();
+					break;
 				default:
 					# code...
 					break;

@@ -57,6 +57,52 @@
 			include_once "blocks/new_post.php";
 		}
 
+		public function open_post() {
+			$id = $_POST['id'];
+			$base = $this->bd->get_link();
+
+			$res = $base->query("SELECT * FROM o_posts WHERE id = '$id' ");
+			$row = $res->fetch_array();
+
+			printf('
+				<h2 align="center">%s</h2>
+				<div id="post-edit">Редактировать</div>
+				<div id="hidden-edit-post-form">					
+					<form>
+						<label><h3>Окно редактирования</h3></label>
+						<input type="text" name="tittle">
+						<br>
+						<textarea></textarea>
+						<button>Редактировать</button>
+					</form>
+				</div>
+				<div class="clr"></div>
+				<div class="clr"></div>
+				<div class="post-info">%s</div>
+				<div class="post-info">%s</div>
+				<input type="hidden" id="post-id-edit" value="%s">
+				<div class="clr"></div>
+				<div id="open-post-text"><img src="image/post/no_image.jpg" width="50%%"><p>%s</p></div>
+				', $row['tittle'], $row['author'], $row['post_date'], $row['id'], $row['post_text']);
+		}
+
+		public function load_post_forEdit() {
+			$id = $_POST['id'];
+			$base = $this->bd->get_link();
+			$res = $base->query("SELECT * FROM o_posts WHERE id = '$id' ");
+			$row = $res->fetch_array();
+
+			printf('
+					<form>
+						<label><h3>Окно редактирования</h3></label>
+						<input type="text" name="tittle" value="%s">
+						<br>
+						<textarea>%s</textarea>
+						<button>Редактировать</button>
+					</form>
+				', $row['tittle'], $row['post_text']);
+		}
+
 		public function editPost() {}				
 
 		public function addPost($author, $text, $tittle) {			

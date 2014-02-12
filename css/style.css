@@ -71,7 +71,7 @@ nav ul li a{
 	
 }
 
-.post-date{
+.post-date, .post-info{
 	text-align: left;
 	padding: 5px 0;
 	padding-left: 15px;
@@ -154,12 +154,19 @@ nav ul li a{
 	display: none; 
 }
 
-.close-window, .close-post{
+.close-window{
 	width: 25px;
 	height: 25px;
 	position: absolute;
 	right: -10px;
 	top: -10px;	
+}
+
+.close-post{
+	position: fixed;
+	width: 25px;
+	height: 25px;
+	right: 8%;
 }
 
 .close-window:hover, .close-post:hover{
@@ -212,10 +219,70 @@ nav ul li a{
 #post-window{
 	position: fixed;
 	top: 5%;
-	left: 15%;
+	left: 10%;
 	background-color: white;
-	width: 70%;
-	min-height: 500px;		
+	width: 80%;
+	min-height: 600px;		
 	z-index: 2;
 	display: none;
+}
+
+.post-info{
+	float: left;
+}
+
+
+#open-post-text img{
+	float: left;
+	width: 40%;
+}
+
+#open-post-text p{
+	float: justify;
+	padding: 10px;
+}
+
+#post-edit{
+	float: right;
+	width: 20%;
+	padding: 5px;
+	color: green;
+	text-decoration: underline;
+}
+
+#post-edit:hover{
+	cursor: pointer;
+	color: red;
+}
+
+#hidden-edit-post-form{
+	float: right;
+	margin-right: 0px;
+	width: 50%;
+	height: auto;
+	position: relative;	
+	display: none;
+}
+
+#hidden-edit-post-form form{
+	position: absolute;
+	width: 70%;	
+	margin: 0;
+	padding: 0;
+	background-color: silver;
+	padding: 15%;
+}
+
+#hidden-edit-post-form input{
+	width: 94%;
+	padding: 3% 3%;
+	border: 1px solid silver;
+
+}
+
+#hidden-edit-post-form textarea{
+	width: 94%;
+	padding: 3%;
+	border: 1px solid silver;
+	min-height: 200px;
 }
