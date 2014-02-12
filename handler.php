@@ -1,7 +1,10 @@
 <?php
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == "xmlhttprequest"){
 		require_once "classes/Post.php";		
-		$post = new Post("ni");
+		require_once "classes/Comment.php";		
+		
+		$post = new Post();
+		$comment = new Comment();
 
 		if(isset($_POST['type'])){
 			$type = $_POST['type'];
@@ -40,6 +43,12 @@
 					break;
 				case 'load-post-for-edit':
 					$post->load_post_forEdit();
+					break;
+				case 'edit-post':
+					$post->editPost();
+					break;
+				case 'send-comment':
+					$comment->send_comment();
 					break;
 				default:
 					# code...

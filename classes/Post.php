@@ -4,6 +4,7 @@
 	*/
 	require_once "classes/Content.php";
 	require_once "classes/Bd.php";
+	require_once "classes/Comment.php";
 	
 	class Post extends Content
 	{
@@ -58,6 +59,7 @@
 		}
 
 		public function open_post() {
+			$comment = new Comment();
 			$id = $_POST['id'];
 			$base = $this->bd->get_link();
 
@@ -83,7 +85,11 @@
 				<input type="hidden" id="post-id-edit" value="%s">
 				<div class="clr"></div>
 				<div id="open-post-text"><img src="image/post/no_image.jpg" width="50%%"><p>%s</p></div>
+				<div class="clr"></div>
+				<h2 align="center">Комментарии: <a id="add-comm-button" href="javascript:;">+</a></h2>				
 				', $row['tittle'], $row['author'], $row['post_date'], $row['id'], $row['post_text']);
+			// Vyzov zagruzki vseh commentov
+			$comment->loadComments($id);
 		}
 
 		public function load_post_forEdit() {
@@ -98,12 +104,23 @@
 						<input type="text" name="tittle" value="%s">
 						<br>
 						<textarea>%s</textarea>
-						<button>Редактировать</button>
+						<a href="javascript:;" id="edit-post-button">Редактировать</a>
+						<a href="javascript:;" id="cancel-edit-post-button">Отмена</a>
 					</form>
 				', $row['tittle'], $row['post_text']);
 		}
 
-		public function editPost() {}				
+		public function editPost() {
+			$tittle = $_POST['tittle'];
+			$text = $_POST['text'];
+			$id = $_POST['id'];
+
+			$base = $this->bd->get_link();
+			$res = $base->query("UPDATE o_posts SET tittle='$tittle', post_text='$text' WHERE id = '$id' ");
+			if($res){
+				echo "Пост отредактирован успешно!";
+			}			
+		}				
 
 		public function addPost($author, $text, $tittle) {			
 			$base = $this->bd->get_link();

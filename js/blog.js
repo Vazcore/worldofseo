@@ -57,6 +57,28 @@ function closeWindow() {
 	}
 }
 
+function editorOpertions(id) {
+	$("#cancel-edit-post-button").click(function() {
+		$("#hidden-edit-post-form").fadeOut("slow");
+	});
+
+	$("#edit-post-button").click(function() {
+		var tittle = $("#hidden-edit-post-form").find("input[name='tittle']").val();
+		var text = $("#hidden-edit-post-form").find("textarea").val();
+
+		$.ajax({
+			type: "POST",
+			url: "handler.php",
+			data: { type : 'edit-post', id : id, tittle : tittle, text : text }
+		}).done(function(msg) {
+			$("#hidden-edit-post-form").fadeOut("slow");
+			closePost();
+			loadPosts();
+			alert(msg);
+		});
+	});
+}
+
 function post_operations() {
 	$("#post-edit").click(function() {
 		var id = $("#post-id-edit").val();
@@ -66,8 +88,37 @@ function post_operations() {
 			data: { type : 'load-post-for-edit', id : id }
 		}).done(function(msg) {
 			$("#hidden-edit-post-form").html(msg);
+			$("#hidden-edit-post-form").fadeIn("slow");			
+			// Block операций над открывшейся формой редактирования
+			editorOpertions(id);
+
 		});
-		$("#hidden-edit-post-form").fadeIn("slow");
+				
+	});
+}
+
+function comments_operations() {
+	$("#add-comm-button").click(function() {
+		$("#hidden-send-comm-form").fadeIn("slow");		
+	});
+	$("#cancel-send-comm-button").click(function() {
+		$("#hidden-send-comm-form").fadeOut("slow");
+	});
+
+	$("#send-comm-button").click(function() {
+		var author = $("#hidden-send-comm-form").find("input[name='author']").val();
+		var email = $("#hidden-send-comm-form").find("input[name='email']").val();
+		var post_id = $("#post-id-edit").val();
+		var text = $("#hidden-send-comm-form").find("textarea").val();
+
+		$.ajax({
+			type: "POST",
+			url: "handler.php",
+			data: { type : 'send-comment', id : post_id, author : author, email : email, text : text }
+		}).done(function(msg) {
+			alert(msg);
+			closePost();
+		});
 	});
 }
 
@@ -86,8 +137,9 @@ function openPost() {
 			postWindow.find(".load-content").html(msg);
 			postWindow.fadeIn("slow");			
 			statusWindow = 1;
-
 			post_operations();
+			comments_operations();
+
 		});		
 	}
 }

@@ -255,7 +255,7 @@ nav ul li a{
 	color: red;
 }
 
-#hidden-edit-post-form{
+#hidden-edit-post-form, #hidden-send-comm-form{
 	float: right;
 	margin-right: 0px;
 	width: 50%;
@@ -264,7 +264,7 @@ nav ul li a{
 	display: none;
 }
 
-#hidden-edit-post-form form{
+#hidden-edit-post-form form, #hidden-send-comm-form form{
 	position: absolute;
 	width: 70%;	
 	margin: 0;
@@ -273,16 +273,79 @@ nav ul li a{
 	padding: 15%;
 }
 
-#hidden-edit-post-form input{
+#hidden-send-comm-form form{
+	top: -300px;
+}
+
+#hidden-edit-post-form input, #hidden-send-comm-form input{
 	width: 94%;
 	padding: 3% 3%;
 	border: 1px solid silver;
 
 }
 
-#hidden-edit-post-form textarea{
+#hidden-edit-post-form textarea, #hidden-send-comm-form textarea{
 	width: 94%;
 	padding: 3%;
 	border: 1px solid silver;
 	min-height: 200px;
+}
+
+#hidden-edit-post-form form a, #hidden-send-comm-form form a{
+	display: block;
+	width: 50%;
+	margin-top: 1%;
+	padding: 3%;
+	background-color: #1788F0; ;
+	color: white;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+#hidden-edit-post-form form a:hover, #hidden-send-comm-form form a:hover{
+	background-color: #0242AC;
+	cursor: pointer;	
+}
+
+#comments-block{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.comment-unit{
+	width: 100%;
+	border: 1px solid silver;
+}
+
+.comment-author{
+	text-decoration: underline;
+	font-style: italic;
+	padding-left: 5%;
+}
+
+.comment-text{
+	text-align: justify;
+	padding: 1%;
+}
+
+#add-comm-button{
+	text-decoration: none;
+	color: lime;
+	font-size: 35px;
+}
+
+#add-comm-button:hover{
+	color: red;
+}
+
+.load-content{
+	position: relative;
+}
+
+#posts-status{
+	display: none;
+}
+
+#post-status-base{
+	display: none;
 }

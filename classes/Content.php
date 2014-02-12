@@ -11,9 +11,11 @@
 		protected $author;
 		protected $date_publishing;
 		protected $bd;
+		protected $base;
 
 		function __construct() {
 			$this->bd = new Bd();
+			$this->base = $this->bd->get_link();
 		}
 
 
