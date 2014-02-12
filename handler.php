@@ -26,6 +26,14 @@
 						echo "Error!";
 					}					
 					break;
+
+				case "loadAllPost":
+					$post->showPosts();
+					break;
+
+				case 'check-new-posts':
+					$post->checkNewsPosts();
+					break;
 				
 				default:
 					# code...

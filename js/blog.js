@@ -1,4 +1,4 @@
-// Status okna: 0 - zakryto, 1 - otkryto
+﻿// Status okna: 0 - zakryto, 1 - otkryto
 var statusWindow = 0;
 // Okno, kotoroe zakroet ves' ekran
 var cover = $("#cover-window");
@@ -57,9 +57,72 @@ function closeWindow() {
 	}
 }
 
+function openPost() {
+	var post_id = $(this).parent().find("input").val();
+	var cover = $("#cover-window");
+	var postWindow = $("#post-window");
+	if(statusWindow == 0){
+		cover.css({"opacity" : "0.7"});
+		cover.fadeIn("slow");
+		$.ajax({
+			type: "POST",
+			url: "handler.php",
+			data: { type : 'open-post', id : post_id }
+		}).done(function(msg) {
+			postWindow.find(".load-content").html(msg);
+			postWindow.fadeIn("slow");
+			statusWindow = 1;
+		});		
+	}
+}
+
+function closePost() {	
+	var cover = $("#cover-window");
+	var postWindow = $("#post-window");
+	if(statusWindow == 1){
+		cover.css({"opacity" : "1"});
+		cover.fadeOut("slow");
+		postWindow.fadeOut("slow");
+		statusWindow = 0;	
+	}
+}
+
+function loadPosts(){	
+	$.ajax({
+		type: "POST",
+		url: "handler.php",
+		scriptCharset: "utf-8",
+		data: { type : 'loadAllPost' }
+	}).done(function(msg) {
+		$("#posts-section").html(msg);
+		$("#posts-status").html($("#post-status-base").html());
+		// После загрузки постов мы можем кликать и просматривать пост полностью
+		$(".post-button").click(openPost);
+		$(".close-post img").click(closePost);
+	});
+}
+
+function check_posts() {
+	var count_before = $("#posts-status").html();
+
+	$.ajax({
+		type: "POST",
+		url: "handler.php",
+		data: { type : 'check-new-posts', count : count_before }
+	}).done(function(msg) {
+		if(msg == "We need reload it"){
+			loadPosts();
+		}
+	});
+}
 
 
 $(document).ready(function() {
+
+	loadPosts();
+
+	setInterval(check_posts, 5000);
+
 	$(".nav_button").click(function() {		
 		loadWindow();
 	});
@@ -68,5 +131,6 @@ $(document).ready(function() {
 	$(".close-window img").click(function() {
 		closeWindow();		
 	});
+
 
 });

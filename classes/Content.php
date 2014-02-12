@@ -2,12 +2,19 @@
 	/**
 	* Glavnyi class content - zadaiet napravlennost' v sozdanii tipov contenta
 	*/
+	require_once "classes/Bd.php";
+
 	class Content
 	{
 		protected $type;
 		protected $text;		
 		protected $author;
 		protected $date_publishing;
+		protected $bd;
+
+		function __construct() {
+			$this->bd = new Bd();
+		}
 
 
 		protected function setAuthor($author){

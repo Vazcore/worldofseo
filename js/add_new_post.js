@@ -1,4 +1,4 @@
-function typeLoadingEdit() {
+﻿function typeLoadingEdit() {
 	var loadButton = $(".nav_button_edit");
 	var type = loadButton.attr("name"); 
 	return type;

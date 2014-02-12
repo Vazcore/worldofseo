@@ -100,13 +100,13 @@ nav ul li a{
 
 .post-button{
 	float: right;
-	
-	height: 20px;
+	margin-bottom: 10px;	
+	margin-right: 5px;	
 }
 
 .b-read-next{
 	text-decoration: none;
-	padding: 8px 5px;
+	padding: 3px;
 	background-color: #1788F0; 
 	color: white;
 }
@@ -154,7 +154,7 @@ nav ul li a{
 	display: none; 
 }
 
-.close-window{
+.close-window, .close-post{
 	width: 25px;
 	height: 25px;
 	position: absolute;
@@ -162,8 +162,7 @@ nav ul li a{
 	top: -10px;	
 }
 
-
-.close-window:hover{
+.close-window:hover, .close-post:hover{
 	cursor: pointer;
 }
 
@@ -207,4 +206,16 @@ nav ul li a{
 .form-edit h3{
 	text-align: center;
 	margin-top: 5%;
+}
+
+
+#post-window{
+	position: fixed;
+	top: 5%;
+	left: 15%;
+	background-color: white;
+	width: 70%;
+	min-height: 500px;		
+	z-index: 2;
+	display: none;
 }

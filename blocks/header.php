@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">	
+
+		
+		<meta charset="utf8">
 		<link rel="stylesheet" type="text/css" href="css/clear.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript" src="js/jquery.js"></script>
@@ -22,6 +24,11 @@
 				<div id="cr_new_post"><button class="nav_button" name="new-post">Новый пост</button></div>
 				<div class="creation_window">
 					<div class="close-window"><img src="image/close.png" width="100%"></div>
+					<div class="load-content"></div>
+				</div>
+
+				<div id="post-window">
+					<div class="close-post"><img src="image/close.png" width="100%"></div>
 					<div class="load-content"></div>
 				</div>
 
