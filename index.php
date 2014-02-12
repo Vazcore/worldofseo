@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	require_once "classes/Page.php";
 	$page = new Page("main");
 	$page->get_header();

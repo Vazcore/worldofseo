@@ -217,7 +217,7 @@ nav ul li a{
 
 
 #post-window{
-	position: fixed;
+	position: absolute;
 	top: 5%;
 	left: 10%;
 	background-color: white;
@@ -274,7 +274,7 @@ nav ul li a{
 }
 
 #hidden-send-comm-form form{
-	top: -300px;
+	top: -500px;
 }
 
 #hidden-edit-post-form input, #hidden-send-comm-form input{

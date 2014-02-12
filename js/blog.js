@@ -1,4 +1,4 @@
-﻿// Status okna: 0 - zakryto, 1 - otkryto
+// Status okna: 0 - zakryto, 1 - otkryto
 var statusWindow = 0;
 // Okno, kotoroe zakroet ves' ekran
 var cover = $("#cover-window");

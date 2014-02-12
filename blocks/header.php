@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/blog.js"></script>		
-		<title>Page_title</title>
+		<title>Блог "Мир SEO"</title>
 	</head>
 	<body>
 		<div id="page_cover">
