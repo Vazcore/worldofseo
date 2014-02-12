@@ -238,8 +238,8 @@ nav ul li a{
 }
 
 #open-post-text p{
-	float: justify;
-	padding: 10px;
+	text-align: justify;
+	padding: 10px 30px;
 }
 
 #post-edit{

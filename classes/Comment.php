@@ -12,7 +12,7 @@
 		public function loadComments($post_id) {			
 			$res = $this->base->query("SELECT * FROM o_comments WHERE post_id = '$post_id' ");
 			
-			printf('
+			echo '
 				<div id="hidden-send-comm-form">					
 					<form>
 						<label><h3>Отправка комментария:</h3></label>
@@ -24,18 +24,18 @@
 						<a href="javascript:;" id="cancel-send-comm-button">Отмена</a>
 					</form>
 				</div>
-				');
+				';
 			if($res->num_rows != 0){
-				foreach ($res as $val) {		
-					printf('
-						<div id="comments-block">
-							<div class="comment-unit">
-								<p class="comment-author">%s написал %s:</p>
-								<p class="comment-text">%s</p>
-							</div>
-						</div>	
-						', $val['author'], $val['com_date'], $val['com_text']);
-				}
+				while($row = $res->fetch_array(MYSQLI_ASSOC)) {
+					echo '
+					<div id="comments-block">
+						<div class="comment-unit">
+							<p class="comment-author">'.$row['author'].' написал '.$row['com_date'].':</p>
+							<p class="comment-text">'.$row['com_text'].'</p>
+						</div>
+					</div>	
+					';
+				}				
 			}else{
 				echo "<h3 align='center'>Комментарии отсутствуют</h3>";
 			}
